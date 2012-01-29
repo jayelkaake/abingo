@@ -1,6 +1,6 @@
 #Gives you easy syntax to use ABingo in your views.
 
-module AbingoViewHelper
+module Abingo::ViewHelpers
 
   def ab_test(test_name, alternatives = nil, options = {}, &block)
 
@@ -36,5 +36,5 @@ module AbingoViewHelper
     end
     script.nil? ? "" : %Q|<script type="text/javascript">#{script}</script>|
   end
-  
+
 end

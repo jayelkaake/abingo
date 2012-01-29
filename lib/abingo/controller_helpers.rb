@@ -3,7 +3,7 @@
 #
 #See abingo.rb for descriptions of what these do.
 
-module AbingoSugar
+module Abingo::ControllerHelpers
 
   def ab_test(test_name, alternatives = nil, options = {})
     if (Abingo.options[:enable_specification] && !params[test_name].nil?)
