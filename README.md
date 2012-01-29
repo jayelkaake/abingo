@@ -1,30 +1,38 @@
-Fork of the A/Bingo split testing framework
-===========================================
-Forked with permission from Patrick McKenzie by Andy Atkinson January 2011
+# Fork of A/Bingo, the brilliant A/B testing library developed by Patrick McKenzie
 
-Goals of this fork:
+* Rails 3.1+ only
+* Converted from plugin to gem
+* Code refactored and cleaned up
+* Multiple issues fixed
 
- - Rails 3 only
- - Solid testing suite
- - HTML/CSS design for Abingo Experiments Dashboard out of the box
+# Install
 
-For project documentation, please refer to the project website:
-http://www.bingocardcreator.com/abingo
+In your `Gemfile`:
 
-WARNING: This fork works with Rails 3 only, do not attempt to install this plugin on a Rails 2.x project.
+`gem 'abingo', :git => 'git://github.com/krautcomputing/abingo.git'`
 
-Install
-=======
- - `rails plugin install git@github.com:webandy/abingo.git`
+Create migration:
 
-Post-install instructions
-=========================
- - `rails g` should show available custom generators `abingo:migration` and `abingo:dashboard_stylesheet`. Run each of the generators.
-  - `rails g abingo:migration`
-  - `rails g abingo:dashboard_stylesheet`
- - Include the `abingo_dashboard` stylesheet in the layout you're using for the dashboard. e.g. `<%= stylesheet_link_tag 'abingo_dashboard' %>`
- - Run the migration, start the server and navigate to the dashboard. For instructions on setting those things up, see the main original project documentation.
+`rails g abingo:migration`
 
-Uninstall
-=========
- - Running `rails plugin remove abingo` should remove the generated stylesheet file and describe how the generated migration may be reverted manually. 
+Create dashboard stylesheet:
+
+`rails g abingo:dashboard_stylesheet`
+
+# Bugs?
+
+Create an issue!
+
+# Contributors
+
+* Patrick McKenzie
+* Ryan Bates
+* Andy Atkinson
+* Jack Kinsella
+* Manuel Meurer
+
+# More info
+
+* http://www.bingocardcreator.com/abingo
+* http://www.kalzumeus.com/2010/02/14/abingo-1-0-0-official-release/
+* http://railscasts.com/episodes/214-a-b-testing-with-a-bingo
