@@ -19,9 +19,9 @@ Install
 
 Post-install instructions
 =========================
- - `rails g` should show available custom generators `abingo_migration` and `abingo_dashboard_stylesheet`. Run each of the generators.
-  - `rails g abingo_migration`
-  - `rails g abingo_dashboard_stylesheet`
+ - `rails g` should show available custom generators `abingo:migration` and `abingo:dashboard_stylesheet`. Run each of the generators.
+  - `rails g abingo:migration`
+  - `rails g abingo:dashboard_stylesheet`
  - Include the `abingo_dashboard` stylesheet in the layout you're using for the dashboard. e.g. `<%= stylesheet_link_tag 'abingo_dashboard' %>`
  - Run the migration, start the server and navigate to the dashboard. For instructions on setting those things up, see the main original project documentation.
 
