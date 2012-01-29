@@ -20,5 +20,4 @@ class Abingo::Alternative < ActiveRecord::Base
       Abingo::Experiment.alternatives_for_test(test_name))
     self.update_all("participants = participants + 1", :lookup => self.calculate_lookup(test_name, viewed_alternative))
   end
-
 end

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AbingoTest < ActiveSupport::TestCase
-
   #Wipes cache, D/B prior to doing a test run.
   Abingo.cache.clear
   Abingo::Experiment.delete_all
@@ -105,7 +104,7 @@ class AbingoTest < ActiveSupport::TestCase
 
     ex.reload
     assert_equal "Finished", ex.status
-    
+
     Abingo.bingo!(test_name)  #Should not be counted, test is over.
     assert_equal 0, ex.conversions
 
@@ -149,7 +148,7 @@ class AbingoTest < ActiveSupport::TestCase
     assert_equal 0, ex.conversions, "Not human yet, so should have no conversions."
 
     Abingo.human!
-    
+
     #Setting up second participant who doesn't convert.
     Abingo.identity = "unsure_if_human_2_#{Time.now.to_i}"
     Abingo.test(test_name, %w{does_not matter})
@@ -173,7 +172,7 @@ class AbingoTest < ActiveSupport::TestCase
       assert test_names.include? key
       assert test_alternatives.include? value
     end
-    
+
     assert_equal 3, Abingo.participating_tests(false).size #pairs for three tests
     Abingo.participating_tests(false).each do |key, value|
       assert test_names.include? key
@@ -183,5 +182,4 @@ class AbingoTest < ActiveSupport::TestCase
     Abingo.identity = "test_nonparticipant"
     assert_equal({}, Abingo.participating_tests)
   end
-
 end

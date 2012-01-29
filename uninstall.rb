@@ -2,10 +2,8 @@
 require 'fileutils'
 
 migration_file = nil
-Dir.glob(File.join('db', 'migrate', '**')){|f| migration_file = f.grep(/_abingo_migration/) }
-if migration_file
-  puts "Abingo migration file #{migration_file} has not been modified. Run the down method manually to reverse the migration."
-end
+Dir.glob(File.join('db', 'migrate', '**')) { |f| migration_file = f.grep(/_abingo_migration/) }
+puts "Abingo migration file #{migration_file} has not been modified. Run the down method manually to reverse the migration." if migration_file
 
 if File.exists?(File.join(Rails.root, 'public', 'stylesheets', 'abingo_dashboard.css'))
   stylesheet_path = File.join(Rails.root, 'public', 'stylesheets', 'abingo_dashboard.css')

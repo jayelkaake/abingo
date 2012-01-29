@@ -1,13 +1,5 @@
-module Abingo
-  module Rails
-    module Controller
-      module Dashboard
-
-        def index
-          @experiments = Abingo::Experiment.all
-        end
-
-      end
-    end
+module Abingo::Rails::Controller::Dashboard
+  def index
+    @experiments = Abingo::Experiment.all
   end
 end

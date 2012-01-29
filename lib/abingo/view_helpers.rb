@@ -1,9 +1,7 @@
 #Gives you easy syntax to use ABingo in your views.
 
 module Abingo::ViewHelpers
-
   def ab_test(test_name, alternatives = nil, options = {}, &block)
-
     if (Abingo.options[:enable_specification] && !params[test_name].nil?)
       choice = params[test_name]
     elsif (Abingo.options[:enable_override_in_session] && !session[test_name].nil?)
@@ -36,5 +34,4 @@ module Abingo::ViewHelpers
     end
     script.nil? ? "" : %Q|<script type="text/javascript">#{script}</script>|
   end
-
 end

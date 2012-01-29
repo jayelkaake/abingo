@@ -14,7 +14,7 @@ if Rails::VERSION::MAJOR.to_i >= 3
   require 'action_controller/caching'
   require 'active_record'
   require 'active_record/base'
-  
+
   require 'rails'
   require 'rails/application'
 
@@ -31,4 +31,3 @@ else
   require 'active_support'
   require 'active_support/test_case'
 end
-

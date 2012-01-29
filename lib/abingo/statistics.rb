@@ -2,13 +2,27 @@
 #to anything you want.
 
 module Abingo::Statistics
+  HANDY_Z_SCORE_CHEATSHEET = [
+    [0.10, 1.29],
+    [0.05, 1.65],
+    [0.01, 2.33],
+    [0.001, 3.08]
+  ]
 
-  HANDY_Z_SCORE_CHEATSHEET = [[0.10, 1.29], [0.05, 1.65], [0.01, 2.33], [0.001, 3.08]]
-  
-  PERCENTAGES = {0.10 => '90%', 0.05 => '95%', 0.01 => '99%', 0.001 => '99.9%'}
-  
-  DESCRIPTION_IN_WORDS = {0.10 => 'fairly confident', 0.05 => 'confident',
-                         0.01 => 'very confident', 0.001 => 'extremely confident'}
+  PERCENTAGES = {
+    0.10 => '90%',
+    0.05 => '95%',
+    0.01 => '99%',
+    0.001 => '99.9%'
+  }
+
+  DESCRIPTION_IN_WORDS = {
+    0.10 => 'fairly confident',
+    0.05 => 'confident',
+    0.01 => 'very confident',
+    0.001 => 'extremely confident'
+  }
+
   def zscore
     if alternatives.size != 2
       raise "Sorry, can't currently automatically calculate statistics for A/B tests with > 2 alternatives."
@@ -48,7 +62,7 @@ module Abingo::Statistics
   def is_statistically_significant?(p = 0.05)
     p_value <= p
   end
-  
+
   def pretty_conversion_rate
     sprintf("%4.2f%%", conversion_rate * 100)
   end
@@ -86,5 +100,4 @@ module Abingo::Statistics
     end
     words
   end
-
 end

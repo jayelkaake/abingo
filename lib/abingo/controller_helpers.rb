@@ -4,7 +4,6 @@
 #See abingo.rb for descriptions of what these do.
 
 module Abingo::ControllerHelpers
-
   def ab_test(test_name, alternatives = nil, options = {})
     if (Abingo.options[:enable_specification] && !params[test_name].nil?)
       choice = params[test_name]
@@ -43,7 +42,5 @@ module Abingo::ControllerHelpers
       textual_result = "0"
     end
     render :text => textual_result, :layout => false #Not actually used by browser
-
   end
-
 end

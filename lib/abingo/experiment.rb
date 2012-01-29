@@ -8,12 +8,13 @@ class Abingo::Experiment < ActiveRecord::Base
   before_destroy :cleanup_cache
 
   def cache_keys
-  ["Abingo::Experiment::exists(#{test_name})".gsub(" ", "_"),
-    "Abingo::Experiment::#{test_name}::alternatives".gsub(" ","_"),
-    "Abingo::Experiment::short_circuit(#{test_name})".gsub(" ", "_")
-  ]
+    [
+      "Abingo::Experiment::exists(#{test_name})".gsub(" ", "_"),
+      "Abingo::Experiment::#{test_name}::alternatives".gsub(" ","_"),
+      "Abingo::Experiment::short_circuit(#{test_name})".gsub(" ", "_")
+    ]
   end
-  
+
   def cleanup_cache
     cache_keys.each do |key|
       Abingo.cache.delete key
@@ -101,5 +102,4 @@ class Abingo::Experiment < ActiveRecord::Base
       Abingo.cache.write("Abingo::Experiment::short_circuit(#{test_name})".gsub(" ", "_"), final_alternative)
     end
   end
-
 end
