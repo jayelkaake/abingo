@@ -3,15 +3,23 @@
 
 #Usage of ABingo, including practical hints, is covered at http://www.bingocardcreator.com/abingo
 
-class Abingo
+require 'active_support/all'
 
+module Abingo
+
+  autoload :ViewHelpers,       'abingo/view_helpers'
+  autoload :ControllerHelpers, 'abingo/controller_helpers'
+  autoload :ConversionRate,    'abingo/conversion_rate'
+  autoload :Alternative,       'abingo/alternative'
+  autoload :Experiment,        'abingo/experiment'
+  autoload :Statistics,        'abingo/statistics'
 
   #Not strictly necessary, but eh, as long as I'm here.
-  cattr_accessor :salt
+  mattr_accessor :salt
   @@salt = "Not really necessary."
 
   @@options ||= {}
-  cattr_accessor :options
+  mattr_accessor :options
 
   #Defined options:
   # :enable_specification  => if true, allow params[test_name] to override the calculated value for a test.
@@ -33,8 +41,8 @@ class Abingo
   #
   #You can overwrite Abingo's cache instance, if you would like it to not share
   #your generic Rails cache.
-  cattr_writer :cache
-
+  @@cache = nil
+  mattr_writer :cache
   def self.cache
     @@cache || Rails.cache
   end
@@ -299,3 +307,5 @@ class Abingo
   end
 
 end
+
+require 'abingo/railtie' if defined?(::Rails::Railtie)
