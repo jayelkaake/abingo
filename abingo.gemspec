@@ -9,6 +9,8 @@ Gem::Specification.new do |gem|
   gem.summary       = "Rails A/B testing. One minute to install. One line to set up a new A/B test. One line to track conversion."
   gem.homepage      = "http://www.bingocardcreator.com/abingo"
 
+  gem.add_runtime_dependency 'activesupport', '>= 3.1.0'
+
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
